@@ -1,0 +1,31 @@
+{
+  "name": "projet-pro-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/server.js",
+  "scripts": {
+    "watch": "nodemon run ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abdallah1996adam/projet-pro-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abdallah1996adam/projet-pro-back/issues"
+  },
+  "homepage": "https://github.com/abdallah1996adam/projet-pro-back#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.9",
+    "uuidv4": "^6.2.11"
+  }
+}
