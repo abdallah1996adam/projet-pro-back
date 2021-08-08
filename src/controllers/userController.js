@@ -4,8 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Users = require("../models/userModel");
 const verifyInputs = require("../utils/verfiyInputs");
-
-const MAXAGE = Math.floor(Date.now() / 1000) + 60 * 60;
+const { request, response } = require("express");
 
 exports.signup = async (request, response) => {
   const { firstName, lastName, email, password } = request.body;
@@ -72,18 +71,35 @@ exports.login = async (request, response) => {
       } else {
         const user = {
           user_id: result[0][0].id,
-          firstName: result[0][0].firstName,
-          lastName: result[0][0].lastName,
-          email: result[0][0].email,
-          exp: MAXAGE,
         };
 
-        const token = await jwt.sign(user, process.env.JWT_SECRET);
+        const token = await jwt.sign(user, process.env.JWT_SECRET, {
+          expiresIn: "24h",
+        });
         return response.status(201).json({ token, user });
       }
     }
   } catch (error) {
     console.error(error);
     return response.status(500).json({ Error: "sevrver Error " });
+  }
+};
+
+exports.getById = async (request, response) => {
+
+  const id = request.params
+
+  try {
+    const userData = await Users.getOne(id) 
+    return response.status(200).json({
+      userData
+    })
+
+  } catch (error) {
+    console.error(error);
+    return response.status(500).json({
+      Error: error,
+    });
+   
   }
 };

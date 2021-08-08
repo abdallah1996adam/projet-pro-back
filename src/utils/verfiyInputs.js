@@ -24,19 +24,19 @@ const verfiyInputs = (inputs) => {
   if (!NAME_REGEX.test(firstName)) {
     return {
       Status: 400,
-      Msg: "firstName invalid (must be a string)",
+      Msg: "prénom invalide (doit être une chaîne de caractères)",
     };
   }
   if (!NAME_REGEX.test(lastName)) {
     return {
       Status: 400,
-      Msg: "lastName invalid (must be a string)",
+      Msg: "nom invalide (doit être une chaîne de caractères)",
     };
   }
   if (!PASSWORD_REGEX.test(password)) {
     return {
       Status: 400,
-      Msg: "invalid password (must length 4 - 12 and include 1 number at least)",
+      Msg: "mot de passe invalide (doit être de 4 à 12 et inclure au moins 1 chiffre)",
     };
   }
   return false;

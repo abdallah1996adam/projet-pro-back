@@ -25,6 +25,13 @@ user_id int not null,
 KEY `userIdFk1_idx` (`user_id`),
 CONSTRAINT `userIdFk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
+create table booking(
+id int not null auto_increment primary key,
+user_id int not null,
+tour_id varchar(45) not null,
+foreign key (user_id) references users(id),
+foreign key (tour_id) references tour(id)
+);
 
 
 

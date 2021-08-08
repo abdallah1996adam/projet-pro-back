@@ -12,4 +12,8 @@ exports.addOne = async (user) => {
   );
 };
 
+exports.getOne = async(id)=>{
+  return await db.execute(`select * from users where id = ?;`, [id])
+}
+
 
