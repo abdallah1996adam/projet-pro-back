@@ -10,11 +10,14 @@ module.exports = (request, response, next) => {
       Error: "vous devez être connecté",
     });
   }
-  const token = authorization.replace("Beare ", "");
+  const token = authorization.replace("Bearer ","");
+  console.log(token);
   jwt.verify(token, process.env.JWT_SECRET, (error, payload) => {
     if (error) {
       return response.status(401).json({ Error: "vous devez être connecté" });
     }
+    const {user, user_id, exp} = payload
+    console.log(payload);
   });
   next();
 };

@@ -15,12 +15,11 @@ router.post("/login", userController.login);
 router.post("/tours", tourController.addTour);
 
 //tour routes get
-router.get("/images", tourImageController.getImages);
 router.get("/tours", tourController.getAllTours);
 router.get("/tour:id", tourController.getById);
 
 //user routes
-router.get('/user/:id',isAuth, tourController.getById)
+router.post('/profile',isAuth, userController.getUser)
 
 router.all("*", (request, response) => {
   response.status(404).json({ Error: "page not found !" });

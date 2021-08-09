@@ -85,15 +85,15 @@ exports.login = async (request, response) => {
   }
 };
 
-exports.getById = async (request, response) => {
+exports.getUser = async (request, response) => {
 
   const id = request.params
 
   try {
-    const userData = await Users.getOne(id) 
-    return response.status(200).json({
-      userData
-    })
+    // const userData = await Users.getOne(id) 
+    // return response.status(200).json({
+    //   userData
+    // })
 
   } catch (error) {
     console.error(error);
