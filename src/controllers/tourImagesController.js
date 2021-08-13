@@ -17,8 +17,8 @@ exports.getImages = async (request, response) => {
 
 
 exports.updateImage = async(request, response)=>{
-  const {id, newImg} = request.body
-
+  // const {file} = request.body
+  // console.log("tourimageController",file);
   try{
 
 

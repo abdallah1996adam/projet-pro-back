@@ -10,6 +10,7 @@ const router = express.Router();
 //user routes
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
+router.post('/userImage',isAuth, userController.addUserImg)
 
 //tours routes post
 router.post("/tours", tourController.addTour);
