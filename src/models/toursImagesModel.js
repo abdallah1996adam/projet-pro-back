@@ -25,3 +25,7 @@ exports.getAll = async () => {
 exports.getByTourId = async (id) => {
   return await db.execute(`select * from images where tour_id = ?`, [id]);
 };
+
+exports.updateOne = async(newImg,id )=>{
+  return await db.execute(`UPDATE images SET image = ?  WHERE id = ?`,[newImg, id])
+} 

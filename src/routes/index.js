@@ -21,6 +21,9 @@ router.get("/tour:id", tourController.getById);
 //user routes
 router.post('/profile',isAuth, userController.getUser)
 
+//tourImage routes
+router.put('/tourImage',tourImageController.updateImage)
+
 router.all("*", (request, response) => {
   response.status(404).json({ Error: "page not found !" });
 });

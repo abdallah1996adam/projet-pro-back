@@ -1,4 +1,5 @@
 const TourImages = require("../models/toursImagesModel");
+const convertImages = require('../utils/convertImage')
 
 exports.getImages = async (request, response) => {
   try {
@@ -13,3 +14,18 @@ exports.getImages = async (request, response) => {
     return response.status(500).json({ Error: error.message });
   }
 };
+
+
+exports.updateImage = async(request, response)=>{
+  const {id, newImg} = request.body
+
+  try{
+
+
+  }catch(error){
+    console.error(error);
+    return response.status(500).json({
+      Error: error.message
+    })
+  }
+}
