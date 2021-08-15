@@ -110,6 +110,11 @@ exports.getUser = async (request, response) => {
 exports.addUserImg = async(request, response)=>{
   const {file} = request.files
   const id = request.user;
+  if(!file){
+    return response.status(400).json({
+      message:"vous devez uploadez une image"
+    })
+  }
 
   const imgData = await convertImage(file)
 

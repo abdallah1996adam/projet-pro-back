@@ -22,4 +22,8 @@ exports.addImg = async(imgData, id)=>{
   return await db.execute(queryData)
 }
 
+exports.updateOne = async (password, id)=>{
+  return await db.execute(`UPDATE users SET password = ? WHERE id = ?;`, [password,id])
+}
+
 
