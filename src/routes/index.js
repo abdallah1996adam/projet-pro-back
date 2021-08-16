@@ -3,6 +3,7 @@ const express = require("express");
 const tourController = require("../controllers/tourController");
 const userController = require("../controllers/userController");
 const tourImageController = require("../controllers/tourImagesController");
+const bookingController = require('../controllers/bookingController')
 const isAuth = require('../middleware/isAuth')
 
 const router = express.Router();
@@ -24,6 +25,9 @@ router.post('/profile',isAuth, userController.getUser)
 
 //tourImage routes
 router.put('/tourImage',tourImageController.updateImage)
+
+//Booking routes
+router.post('/booking', isAuth,bookingController.addBooking)
 
 router.all("*", (request, response) => {
   response.status(404).json({ Error: "page not found !" });
