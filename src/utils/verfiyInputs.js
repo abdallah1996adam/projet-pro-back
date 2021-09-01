@@ -7,7 +7,7 @@ const verfiyInputs = (inputs) => {
 
   const { email, firstName, lastName, password } = inputs;
 
-  if (email == "" || firstName == "" || lastName == "" || lastName == "") {
+  if (email == "" || firstName == "" || lastName == "" || password == "") {
     return {
       Status: 400,
       Msg: "les champs ne peuvent pas être vides",
@@ -20,7 +20,6 @@ const verfiyInputs = (inputs) => {
       Msg: "invalid email",
     };
   }
-  https://www.youtube.com/watch?v=JJatzkPcmoI
   if (!NAME_REGEX.test(firstName)) {
     return {
       Status: 400,

@@ -23,10 +23,6 @@ exports.findAll = async () => {
   return await db.execute(`select * from tour`);
 };
 
-
-
-exports.findOne = async(id)=>{
- 
-  return await db.execute(`SELECT * FROM tour WHERE id = ?`, [id])
-}
-
+exports.findOne = async (id) => {
+  return await db.execute(`SELECT * FROM tour WHERE id = ?`, [id]);
+};

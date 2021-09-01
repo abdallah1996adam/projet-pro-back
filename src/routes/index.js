@@ -8,10 +8,12 @@ const isAuth = require('../middleware/isAuth')
 
 const router = express.Router();
 
+
 //user routes
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 router.post('/userImage',isAuth, userController.addUserImg)
+router.put('/user', isAuth, userController.updateOne)
 
 //tours routes post
 router.post("/tours", tourController.addTour);
@@ -28,9 +30,13 @@ router.put('/tourImage',tourImageController.updateImage)
 
 //Booking routes
 router.post('/booking', isAuth,bookingController.addBooking)
+router.post('/booking:id', isAuth,bookingController.getByID)
 
+//404 errors
 router.all("*", (request, response) => {
   response.status(404).json({ Error: "page not found !" });
 });
 
 module.exports = router;
+
+

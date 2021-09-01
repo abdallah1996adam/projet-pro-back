@@ -29,3 +29,5 @@ exports.updateImage = async(request, response)=>{
     })
   }
 }
+
+

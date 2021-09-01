@@ -42,7 +42,7 @@ exports.addTour = async (request, response) => {
     };
 
     await Tours.addOne(newTour);
-    await TourImgaes.addImage(id, img1, img2, img3, img4);
+    await TourImages.addImage(id, img1, img2, img3, img4);
 
     return response.status(201).json({
       success: "the tour has been added successfully",

@@ -4,6 +4,7 @@ exports.findOne = async (email) => {
   return await db.execute(`SELECT * FROM users WHERE emailId = (?);`, [email]);
 };
 
+
 exports.addOne = async (user) => {
   const { firstName, lastName, email, password } = user;
   return await db.execute(
@@ -12,17 +13,18 @@ exports.addOne = async (user) => {
   );
 };
 
+
 exports.getOne = async(id)=>{
   return await db.execute(`select * from users where id = ?;`, [id])
 }
 
 exports.addImg = async(imgData, id)=>{
   const queryData = `UPDATE users SET userImage = '${imgData}' WHERE id = '${id}';`
- 
+  
   return await db.execute(queryData)
 }
 
-exports.updateOne = async (password, id)=>{
+exports.updatePassword = async (password, id)=>{
   return await db.execute(`UPDATE users SET password = ? WHERE id = ?;`, [password,id])
 }
 
